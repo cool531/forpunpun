@@ -1,0 +1,620 @@
+<title>จำ 33 กษัตริย์อยุธยา</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Charm:wght@400;700&family=Sarabun:wght@400;500;700&display=swap">
+<style>
+/* Layout: one column of lacquer-and-gold panels, a sticky header with progress, mode tabs, and one active play area */
+:root{
+  --bg:#f6ecd6;        /* aged palm-leaf cream */
+  --paper:#fffaf0;
+  --ink:#3a1f12;
+  --muted:#7a5a44;
+  --red:#8e1b1b;       /* lacquer red */
+  --red-deep:#5e0f10;
+  --gold:#b8862b;
+  --gold-soft:#e9cf8f;
+  --line:#dcc49a;
+  --ok:#2f7a3f;
+  --bad:#b3261e;
+  --d-uthong:#2e6a8a;
+  --d-suphan:#a3302a;
+  --d-sukho:#c47a12;
+  --d-prasat:#6c3f80;
+  --d-phlu:#3c7a48;
+  --font-display:"Charm","Sarabun",serif;
+  --font-body:"Sarabun","Leelawadee UI","Tahoma",sans-serif;
+  --r:14px;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#1c1010;--paper:#2a1817;--ink:#f5e7cc;--muted:#c9ab8a;--red:#d65a4c;--red-deep:#a33a30;
+  --gold:#e2b860;--gold-soft:#5a4420;--line:#4f3328;--ok:#6cc27d;--bad:#ff8a7a;
+  --d-uthong:#5aa2c6;--d-suphan:#e0675c;--d-sukho:#e9a23d;--d-prasat:#b07fd0;--d-phlu:#6fbf7e;color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#1c1010;--paper:#2a1817;--ink:#f5e7cc;--muted:#c9ab8a;--red:#d65a4c;--red-deep:#a33a30;
+  --gold:#e2b860;--gold-soft:#5a4420;--line:#4f3328;--ok:#6cc27d;--bad:#ff8a7a;
+  --d-uthong:#5aa2c6;--d-suphan:#e0675c;--d-sukho:#e9a23d;--d-prasat:#b07fd0;--d-phlu:#6fbf7e;color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--font-body);font-size:17px;line-height:1.6;
+  background-image:radial-gradient(circle at 20% 0%, color-mix(in srgb,var(--gold) 12%,transparent), transparent 50%);}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--red-deep)}
+button{font:inherit;color:inherit;cursor:pointer}
+button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.wrap{max-width:720px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 48px}
+
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--red-deep);color:#f8e6b8;
+  border-bottom:3px solid var(--gold);box-shadow:0 2px 10px rgb(0 0 0 / .2)}
+header .wrap{padding-block:10px 10px;display:grid;gap:6px}
+.brand{display:flex;align-items:center;gap:10px;justify-content:space-between;flex-wrap:wrap}
+.brand h1{font-family:var(--font-display);font-size:1.55rem;margin:0;line-height:1.2;font-weight:700;color:#f6d98a;text-wrap:balance}
+.stats{display:flex;gap:8px;flex-wrap:wrap;font-size:.85rem}
+.chip{border:1px solid #c99a45;border-radius:999px;padding:2px 10px;background:rgb(0 0 0 / .18);font-variant-numeric:tabular-nums;white-space:nowrap}
+.chip b{color:#ffe7a6}
+.progress{display:flex;align-items:center;gap:10px;font-size:.85rem}
+.bar{flex:1;height:10px;border-radius:99px;background:rgb(0 0 0 / .3);overflow:hidden;border:1px solid #9c7330}
+.bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,#d9a440,#ffe08a);transition:width .4s}
+
+nav.tabs{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-block:14px}
+nav.tabs button{border:2px solid var(--line);background:var(--paper);border-radius:12px;padding:10px 4px;font-weight:700;font-size:.95rem;min-height:52px;line-height:1.25}
+nav.tabs button span{display:block;font-size:1.2rem}
+nav.tabs button[aria-selected="true"]{background:var(--red);border-color:var(--gold);color:#fff3d2}
+.panel{background:var(--paper);border:2px solid var(--line);border-radius:var(--r);padding:16px;position:relative}
+.panel::before{content:"";position:absolute;inset:5px;border:1px solid var(--gold-soft);border-radius:10px;pointer-events:none}
+h2{font-family:var(--font-display);color:var(--red);font-size:1.6rem;margin:0 0 6px;line-height:1.25;text-wrap:balance}
+.hint{color:var(--muted);font-size:.9rem;margin:0 0 10px}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+select{font:inherit;padding:8px 10px;border-radius:10px;border:2px solid var(--line);background:var(--paper);color:var(--ink);min-height:44px;max-width:100%}
+
+.btn{border:2px solid var(--gold);background:var(--paper);border-radius:12px;padding:10px 14px;min-height:48px;font-weight:700}
+.btn.primary{background:var(--red);color:#fff3d2;border-color:var(--gold)}
+.btn.good{background:var(--ok);color:#fff;border-color:var(--ok)}
+.btn.warn{background:var(--paper);color:var(--bad);border-color:var(--bad)}
+.btn:active{transform:translateY(1px)}
+.btn-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:12px}
+.btn-grid.two{grid-template-columns:1fr 1fr}
+
+/* flashcard */
+.legend{display:flex;flex-wrap:wrap;gap:6px 12px;font-size:.82rem;color:var(--muted);margin:8px 0}
+.legend span{display:inline-flex;align-items:center;gap:5px}
+.legend i{width:12px;height:12px;border-radius:50%;display:inline-block}
+.card-scene{perspective:1200px;margin-top:10px}
+.card{position:relative;width:100%;min-height:430px;transition:transform .55s cubic-bezier(.3,.7,.3,1);transform-style:preserve-3d;cursor:pointer}
+.card.flipped{transform:rotateY(180deg)}
+.face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:var(--r);border:3px solid var(--gold);
+  background:var(--paper);padding:18px;display:flex;flex-direction:column;overflow:auto}
+.face.front{align-items:center;justify-content:center;gap:10px;text-align:center;
+  background:radial-gradient(circle at 50% 35%, color-mix(in srgb,var(--gold) 18%,var(--paper)), var(--paper) 70%)}
+.face.back{transform:rotateY(180deg);gap:8px}
+.portrait{width:190px;height:190px;max-width:100%;border-radius:50%;overflow:hidden;border:4px solid var(--gold);box-shadow:0 4px 14px rgb(0 0 0 / .18);background:var(--paper)}
+.portrait img,.portrait svg{width:100%;height:100%;object-fit:cover;display:block}
+.big-order{font-family:var(--font-display);font-size:2rem;color:var(--red);line-height:1}
+.tap{font-size:.85rem;color:var(--muted)}
+.dyn-tag{display:inline-block;padding:1px 10px;border-radius:99px;color:#fff;font-size:.82rem;font-weight:700}
+.back-head{display:flex;gap:12px;align-items:center}
+.back-head .portrait{width:74px;height:74px;flex:none;border-width:3px}
+.back-head h3{font-family:var(--font-display);font-size:1.45rem;margin:0;line-height:1.25;color:var(--red)}
+.alt{color:var(--muted);font-size:.9rem}
+dl.facts{margin:4px 0 0;display:grid;gap:6px}
+dl.facts div{display:grid;grid-template-columns:7.2em 1fr;gap:8px;border-bottom:1px dashed var(--line);padding-bottom:6px}
+dl.facts dt{color:var(--muted);font-size:.88rem;font-weight:700}
+dl.facts dd{margin:0;min-width:0}
+.memo{background:color-mix(in srgb,var(--gold) 16%,var(--paper));border-left:4px solid var(--gold);padding:8px 10px;border-radius:8px;font-size:.95rem}
+.pending{color:var(--bad);font-weight:700}
+.status-pill{font-size:.8rem;padding:1px 8px;border-radius:99px;border:1px solid currentColor}
+.status-pill.ok{color:var(--ok)}.status-pill.no{color:var(--bad)}
+.img-edit{display:grid;gap:6px;margin-top:4px}
+.img-edit input{font:inherit;padding:8px;border-radius:8px;border:2px solid var(--line);background:var(--paper);color:var(--ink);width:100%;min-width:0}
+.link-btn{background:none;border:none;color:var(--red);text-decoration:underline;padding:4px 0;font-size:.9rem;font-weight:700;align-self:flex-start}
+
+/* quiz */
+.q-meta{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;font-size:.9rem;color:var(--muted);font-variant-numeric:tabular-nums}
+.combo{color:var(--red);font-weight:700}
+.q-text{font-size:1.2rem;font-weight:700;margin:10px 0;line-height:1.5}
+.q-event{background:color-mix(in srgb,var(--gold) 14%,var(--paper));border:1px dashed var(--gold);border-radius:10px;padding:10px;margin:8px 0;font-weight:500}
+.opts{display:grid;gap:8px}
+.opt{text-align:left;border:2px solid var(--line);background:var(--paper);border-radius:12px;padding:12px 14px;min-height:54px;font-size:1rem;display:flex;gap:10px;align-items:center}
+.opt .mini{width:34px;height:34px;flex:none}
+.opt.correct{border-color:var(--ok);background:color-mix(in srgb,var(--ok) 15%,var(--paper))}
+.opt.wrong{border-color:var(--bad);background:color-mix(in srgb,var(--bad) 13%,var(--paper))}
+.opt:disabled{cursor:default}
+.feedback{margin-top:10px;padding:10px 12px;border-radius:10px;font-size:.95rem}
+.feedback.ok{background:color-mix(in srgb,var(--ok) 14%,var(--paper));border:1px solid var(--ok)}
+.feedback.no{background:color-mix(in srgb,var(--bad) 12%,var(--paper));border:1px solid var(--bad)}
+.result{text-align:center;display:grid;gap:8px;justify-items:center}
+.result .score{font-family:var(--font-display);font-size:3.2rem;color:var(--red);line-height:1}
+.review{text-align:left;width:100%;font-size:.92rem;display:grid;gap:4px;margin-top:6px}
+
+/* sort */
+.sort-list{list-style:none;padding:0;margin:10px 0;display:grid;gap:8px}
+.sort-item{display:flex;align-items:center;gap:10px;border:2px solid var(--line);background:var(--paper);border-radius:12px;padding:8px 10px;touch-action:none;user-select:none;-webkit-user-select:none}
+.sort-item.dragging{border-color:var(--gold);box-shadow:0 6px 18px rgb(0 0 0 / .22);transform:scale(1.02);z-index:2;position:relative}
+.sort-item .grip{font-size:1.3rem;color:var(--muted);cursor:grab;padding:0 2px}
+.sort-item .mini{width:40px;height:40px;flex:none}
+.sort-item .nm{flex:1;min-width:0;font-weight:700;line-height:1.35}
+.sort-item .nm small{display:block;font-weight:400;color:var(--muted)}
+.sort-item .arrows{display:flex;flex-direction:column;gap:2px}
+.sort-item .arrows button{border:1px solid var(--line);background:var(--paper);border-radius:6px;width:34px;height:26px;padding:0;line-height:1}
+.sort-item.right{border-color:var(--ok);background:color-mix(in srgb,var(--ok) 12%,var(--paper))}
+.sort-item.off{border-color:var(--bad);background:color-mix(in srgb,var(--bad) 10%,var(--paper))}
+.sort-item .ans{font-weight:700;font-variant-numeric:tabular-nums;min-width:2.5em;text-align:right}
+
+/* timeline */
+.tl{display:grid;gap:14px;margin-top:8px}
+.tl-dyn{border-left:8px solid var(--c);border-radius:6px;background:color-mix(in srgb,var(--c) 7%,var(--paper));padding:8px 10px}
+.tl-dyn h3{margin:0 0 6px;font-family:var(--font-display);font-size:1.3rem;color:var(--c);line-height:1.3}
+.tl-dyn h3 small{font-family:var(--font-body);font-size:.8rem;color:var(--muted);font-weight:400}
+.tl-items{display:grid;gap:6px}
+.tl-item{display:flex;gap:10px;align-items:center;text-align:left;width:100%;border:1px solid var(--line);background:var(--paper);border-radius:10px;padding:6px 10px;min-height:52px}
+.tl-item .mini{width:38px;height:38px;flex:none}
+.tl-item .nm{flex:1;min-width:0;line-height:1.35}
+.tl-item .nm small{display:block;color:var(--muted);font-size:.82rem;font-variant-numeric:tabular-nums}
+.tl-item.special{border-style:dashed;border-color:var(--gold)}
+.tl-item .known{color:var(--ok);font-weight:700}
+
+dialog{border:3px solid var(--gold);border-radius:var(--r);background:var(--paper);color:var(--ink);padding:16px;width:min(560px,calc(100vw - 32px));max-height:85vh}
+dialog::backdrop{background:rgb(30 10 5 / .55)}
+.special-card{border:2px dashed var(--gold);border-radius:12px;padding:10px 12px;margin-top:12px;background:color-mix(in srgb,var(--gold) 10%,var(--paper))}
+.special-card h4{margin:0;font-family:var(--font-display);color:var(--red);font-size:1.2rem}
+.note{font-size:.82rem;color:var(--muted);margin-top:14px}
+
+/* motion */
+@keyframes pop{0%{transform:scale(1)}35%{transform:scale(1.07)}65%{transform:scale(.98)}100%{transform:scale(1)}}
+@keyframes shake{0%,100%{transform:translateX(0)}20%{transform:translateX(-8px)}40%{transform:translateX(8px)}60%{transform:translateX(-5px)}80%{transform:translateX(5px)}}
+.pop{animation:pop .45s ease}
+.shake{animation:shake .42s ease}
+@media (prefers-reduced-motion: reduce){.card{transition:none}.pop,.shake{animation:none}.bar i{transition:none}}
+@media (max-width:420px){nav.tabs button{font-size:.82rem}.card{min-height:470px}.portrait{width:160px;height:160px}dl.facts div{grid-template-columns:1fr;gap:0}}
+</style>
+
+<header>
+  <div class="wrap">
+    <div class="brand">
+      <h1>จำ 33 กษัตริย์กรุงศรีอยุธยา</h1>
+      <div class="stats">
+        <span class="chip">คะแนน <b id="sScore">0</b></span>
+        <span class="chip">คอมโบ <b id="sCombo">0</b></span>
+        <span class="chip">สูงสุด <b id="sBest">0</b></span>
+      </div>
+    </div>
+    <div class="progress"><span>จำได้แล้ว <b id="pTxt">0/33</b></span><div class="bar" aria-hidden="true"><i id="pBar"></i></div></div>
+  </div>
+</header>
+
+<main class="wrap">
+  <nav class="tabs" role="tablist">
+    <button role="tab" data-mode="flash" aria-selected="true"><span>🃏</span>แฟลชการ์ด</button>
+    <button role="tab" data-mode="quiz" aria-selected="false"><span>❓</span>ควิซ</button>
+    <button role="tab" data-mode="sort" aria-selected="false"><span>↕️</span>เรียงลำดับ</button>
+    <button role="tab" data-mode="timeline" aria-selected="false"><span>📜</span>ไทม์ไลน์</button>
+  </nav>
+
+  <section class="panel" id="view-flash">
+    <h2>แฟลชการ์ด</h2>
+    <p class="hint">แตะการ์ดเพื่อพลิก การ์ดที่กด "ยังไม่ได้" จะวนกลับมาเร็วขึ้น สีวงกลมบอกราชวงศ์</p>
+    <div class="row">
+      <label for="fDyn" class="hint" style="margin:0">ราชวงศ์</label>
+      <select id="fDyn"></select>
+      <span class="hint" style="margin:0" id="fPos"></span>
+    </div>
+    <div class="legend" id="legend"></div>
+    <div class="card-scene"><div class="card" id="card" tabindex="0" role="button" aria-label="พลิกการ์ด"></div></div>
+    <div class="btn-grid">
+      <button class="btn" id="fPrev">◀ ก่อนหน้า</button>
+      <button class="btn" id="fRand">🎲 สุ่ม</button>
+      <button class="btn" id="fNext">ถัดไป ▶</button>
+    </div>
+    <div class="btn-grid two">
+      <button class="btn warn" id="fNo">✗ ยังไม่ได้</button>
+      <button class="btn good" id="fYes">✓ จำได้แล้ว</button>
+    </div>
+    <div class="special-card" id="specialCard"></div>
+  </section>
+
+  <section class="panel" id="view-quiz" hidden></section>
+
+  <section class="panel" id="view-sort" hidden>
+    <h2>เรียงลำดับการครองราชย์</h2>
+    <p class="hint">ลากที่ ⠿ หรือกดลูกศร เรียงจากครองราชย์ก่อน (บน) ไปหลัง (ล่าง)</p>
+    <ol class="sort-list" id="sortList"></ol>
+    <div class="feedback" id="sortFb" hidden></div>
+    <div class="btn-grid two">
+      <button class="btn" id="sortNew">🔄 ชุดใหม่</button>
+      <button class="btn primary" id="sortCheck">ตรวจคำตอบ</button>
+    </div>
+  </section>
+
+  <section class="panel" id="view-timeline" hidden>
+    <h2>ไทม์ไลน์ พ.ศ. 1893–2310</h2>
+    <p class="hint">417 ปี 5 ราชวงศ์ แตะพระนามเพื่อดูรายละเอียด</p>
+    <div class="legend" id="legend2"></div>
+    <div class="tl" id="tl"></div>
+  </section>
+
+  <p class="note">ปีครองราชย์อ้างอิงพระราชพงศาวดารกรุงศรีอยุธยาที่ใช้ในแบบเรียนทั่วไป บางฉบับต่างกัน 1–2 ปี ช่องที่เขียน "(รอตรวจสอบ)" ยังไม่ได้ยืนยันข้อมูล</p>
+</main>
+
+<dialog id="dlg"><div id="dlgBody"></div><div class="btn-grid two" style="margin-top:12px"><span></span><button class="btn primary" id="dlgClose">ปิด</button></div></dialog>
+
+<script>
+const DYN = {
+  'อู่ทอง':      {v:'--d-uthong', range:'พ.ศ. 1893–1952 (สลับกับสุพรรณภูมิ)'},
+  'สุพรรณภูมิ':  {v:'--d-suphan', range:'พ.ศ. 1913–2112'},
+  'สุโขทัย':     {v:'--d-sukho',  range:'พ.ศ. 2112–2173'},
+  'ปราสาททอง':   {v:'--d-prasat', range:'พ.ศ. 2173–2231'},
+  'บ้านพลูหลวง': {v:'--d-phlu',   range:'พ.ศ. 2231–2310'}
+};
+const P = '(รอตรวจสอบ)';
+const KINGS = [
+ {order:1,name:'สมเด็จพระรามาธิบดีที่ 1',altName:'พระเจ้าอู่ทอง',dynasty:'อู่ทอง',reignYears:'1893–1912',
+  keyEvent:'สถาปนากรุงศรีอยุธยาเป็นราชธานี พ.ศ. 1893 · ตรากฎหมายสำคัญ เช่น กฎหมายลักษณะพยาน และลักษณะผัวเมีย',
+  funFact:'"อู่ทองสร้างอู่" ผู้สร้างกรุงคือพระองค์แรก',image:''},
+ {order:2,name:'สมเด็จพระราเมศวร',altName:'ครองราชย์ 2 ครั้ง',dynasty:'อู่ทอง',reignYears:'1912–1913 และ 1931–1938',
+  keyEvent:'ครั้งแรกถวายราชสมบัติให้ขุนหลวงพะงั่ว · ครั้งที่ 2 ยึดอำนาจคืนจากเจ้าทองลัน และยกทัพตีเชียงใหม่',
+  funFact:'พระองค์เดียวที่ขึ้นครองราชย์ 2 รอบ "ราเมศวรกลับมาเสมอ"',image:''},
+ {order:3,name:'สมเด็จพระบรมราชาธิราชที่ 1',altName:'ขุนหลวงพะงั่ว',dynasty:'สุพรรณภูมิ',reignYears:'1913–1931',
+  keyEvent:'ยกทัพตีสุโขทัยหลายครั้ง จนสุโขทัยยอมเป็นเมืองประเทศราช',
+  funFact:'พะงั่วเป็นลุงของราเมศวร และเป็นกษัตริย์องค์แรกจากสายสุพรรณภูมิ',image:''},
+ {order:4,name:'สมเด็จพระเจ้าทองลัน',altName:'เจ้าทองจันทร์',dynasty:'สุพรรณภูมิ',reignYears:'1931 (ราว 7 วัน)',
+  keyEvent:'ถูกสมเด็จพระราเมศวรยึดอำนาจและสำเร็จโทษ',
+  funFact:'"ทองลัน 7 วัน" ครองราชย์สั้นมาก',image:''},
+ {order:5,name:'สมเด็จพระรามราชาธิราช',altName:'พระยาราม',dynasty:'อู่ทอง',reignYears:'1938–1952',
+  keyEvent:'ขัดแย้งกับเจ้าเสนาบดี จนเจ้านครอินทร์ยึดอำนาจ แล้วถูกส่งไปอยู่เมืองปทาคูจาม',
+  funFact:'กษัตริย์องค์สุดท้ายของราชวงศ์อู่ทอง',image:''},
+ {order:6,name:'สมเด็จพระอินทราชา',altName:'สมเด็จพระนครินทราธิราช / เจ้านครอินทร์',dynasty:'สุพรรณภูมิ',reignYears:'1952–1967',
+  keyEvent:'เคยเสด็จไปจีน มีสัมพันธไมตรีกับราชวงศ์หมิง · เจ้าอ้ายกับเจ้ายี่ชนช้างแย่งราชสมบัติจนสิ้นพระชนม์ทั้งคู่',
+  funFact:'จำ "เจ้าอ้าย เจ้ายี่ เจ้าสาม" ลูกคนที่ 3 ได้ครองราชย์ต่อ',image:''},
+ {order:7,name:'สมเด็จพระบรมราชาธิราชที่ 2',altName:'เจ้าสามพระยา',dynasty:'สุพรรณภูมิ',reignYears:'1967–1991',
+  keyEvent:'ตีเมืองพระนครหลวง (นครธม) ของเขมรได้ พ.ศ. 1974 · สร้างวัดราชบูรณะ',
+  funFact:'กรุวัดราชบูรณะพบเครื่องทองจำนวนมาก นึกถึง "สามพระยา = สามสิ่งทอง"',image:''},
+ {order:8,name:'สมเด็จพระบรมไตรโลกนาถ',altName:'',dynasty:'สุพรรณภูมิ',reignYears:'1991–2031',
+  keyEvent:'ปฏิรูปการปกครอง แยกฝ่ายทหาร–พลเรือน ปรับจตุสดมภ์ · ตราระบบศักดินา · ประทับที่พิษณุโลก',
+  funFact:'"ไตรโลก" จัดระเบียบทั้งแผ่นดิน นึกถึงการจัดระบบบ้านเมือง',image:''},
+ {order:9,name:'สมเด็จพระบรมราชาธิราชที่ 3',altName:'สมเด็จพระอินทราชาที่ 2',dynasty:'สุพรรณภูมิ',reignYears:'2031–2034',
+  keyEvent:'พระราชโอรสของพระบรมไตรโลกนาถ ครองอยุธยาขณะพระราชบิดาประทับพิษณุโลก · เหตุการณ์อื่น '+P,
+  funFact:'เป็นพี่น้องกับลำดับ 10 (รามาธิบดีที่ 2) ลูกไตรโลกทั้งคู่',image:''},
+ {order:10,name:'สมเด็จพระรามาธิบดีที่ 2',altName:'',dynasty:'สุพรรณภูมิ',reignYears:'2034–2072',
+  keyEvent:'โปรตุเกสเข้ามาเป็นชาติตะวันตกชาติแรก พ.ศ. 2054 · หล่อพระศรีสรรเพชญ์ · ตำราพิชัยสงคราม',
+  funFact:'"ฝรั่งชาติแรกมาตอนรามาสอง" โปรตุเกส 2054',image:''},
+ {order:11,name:'สมเด็จพระบรมราชาธิราชที่ 4',altName:'หน่อพุทธางกูร',dynasty:'สุพรรณภูมิ',reignYears:'2072–2076',
+  keyEvent:'สิ้นพระชนม์ด้วยไข้ทรพิษ (ฝีดาษ)',
+  funFact:'ครองราชย์ราว 4 ปี แล้วส่งต่อให้โอรสวัยราว 5 พรรษา',image:''},
+ {order:12,name:'สมเด็จพระรัษฎาธิราช',altName:'',dynasty:'สุพรรณภูมิ',reignYears:'2076–2077',
+  keyEvent:'ขึ้นครองราชย์ตอนพระชนมายุราว 5 พรรษา ครองได้ราว 5 เดือน แล้วถูกพระไชยราชาสำเร็จโทษ',
+  funFact:'"5 ขวบ 5 เดือน" กษัตริย์เด็กองค์แรก',image:''},
+ {order:13,name:'สมเด็จพระไชยราชาธิราช',altName:'',dynasty:'สุพรรณภูมิ',reignYears:'2077–2089',
+  keyEvent:'สงครามกับพม่าครั้งแรก (สงครามเชียงกราน พ.ศ. 2081) · ใช้ทหารอาสาชาวโปรตุเกส',
+  funFact:'"ไชย" = ชัยชนะ ศึกพม่าครั้งแรก',image:''},
+ {order:14,name:'สมเด็จพระยอดฟ้า',altName:'พระแก้วฟ้า',dynasty:'สุพรรณภูมิ',reignYears:'2089–2091',
+  keyEvent:'ขึ้นครองราชย์ตอนพระชนมายุราว 11 พรรษา ท้าวศรีสุดาจันทร์ (พระมารดา) ว่าราชการแทน แล้วถูกสำเร็จโทษ',
+  funFact:'หลังยอดฟ้ามี "ขุนวรวงศาธิราช" คั่น แต่ไม่นับใน 33 พระองค์',image:''},
+ {order:15,name:'สมเด็จพระมหาจักรพรรดิ',altName:'พระเทียรราชา',dynasty:'สุพรรณภูมิ',reignYears:'2091–2111',
+  keyEvent:'สงครามพระเจ้าตะเบ็งชะเวตี้ สมเด็จพระสุริโยทัยสิ้นพระชนม์บนคอช้าง พ.ศ. 2091 · สงครามช้างเผือก พ.ศ. 2106',
+  funFact:'"จักรพรรดิมีช้างเผือก" ต้นเหตุสงครามช้างเผือก',image:''},
+ {order:16,name:'สมเด็จพระมหินทราธิราช',altName:'',dynasty:'สุพรรณภูมิ',reignYears:'2111–2112',
+  keyEvent:'เสียกรุงศรีอยุธยาครั้งที่ 1 แก่พม่า (พระเจ้าบุเรงนอง) พ.ศ. 2112',
+  funFact:'องค์สุดท้ายสายสุพรรณภูมิ "มหินทร์ เสียกรุงครั้งแรก"',image:''},
+ {order:17,name:'สมเด็จพระมหาธรรมราชาธิราช',altName:'พระสุธรรมราชา / เดิมคือขุนพิเรนทรเทพ',dynasty:'สุโขทัย',reignYears:'2112–2133',
+  keyEvent:'พม่าแต่งตั้งให้ครองกรุงศรีอยุธยาในฐานะเมืองขึ้นของหงสาวดี',
+  funFact:'พระราชบิดาของพระนเรศวรและพระเอกาทศรถ',image:''},
+ {order:18,name:'สมเด็จพระนเรศวรมหาราช',altName:'พระองค์ดำ',dynasty:'สุโขทัย',reignYears:'2133–2148',
+  keyEvent:'ประกาศอิสรภาพที่เมืองแครง พ.ศ. 2127 · ทำยุทธหัตถีชนะพระมหาอุปราชา พ.ศ. 2135',
+  funFact:'ลำดับ 18 ตรงกับวันกองทัพไทย 18 มกราคม (วันยุทธหัตถี)',image:''},
+ {order:19,name:'สมเด็จพระเอกาทศรถ',altName:'พระองค์ขาว',dynasty:'สุโขทัย',reignYears:'2148–2153',
+  keyEvent:'ส่งคณะทูตไปฮอลันดา พ.ศ. 2151 · ปรับปรุงการเก็บภาษีอากรและค่าธรรมเนียม',
+  funFact:'"องค์ดำ–องค์ขาว" พี่น้องนักรบคู่กัน',image:''},
+ {order:20,name:'สมเด็จพระศรีเสาวภาคย์',altName:'',dynasty:'สุโขทัย',reignYears:'2153–2154 (ราว 1 ปี)',
+  keyEvent:'ครองราชย์ช่วงสั้น แล้วถูกพระศรีศิลป์ยึดราชสมบัติ · รายละเอียดอื่น '+P,
+  funFact:'พระราชโอรสของพระเอกาทศรถ',image:''},
+ {order:21,name:'สมเด็จพระเจ้าทรงธรรม',altName:'พระอินทราชา / พระศรีศิลป์',dynasty:'สุโขทัย',reignYears:'2154–2171',
+  keyEvent:'พบรอยพระพุทธบาทที่สระบุรี · ชาวญี่ปุ่น (ยามาดะ นางามาสะ / ออกญาเสนาภิมุข) เข้ารับราชการ',
+  funFact:'"ทรงธรรม" นึกถึงพระพุทธบาท สายธรรมะ',image:''},
+ {order:22,name:'สมเด็จพระเชษฐาธิราช',altName:'',dynasty:'สุโขทัย',reignYears:'2171–2173',
+  keyEvent:'ถูกเจ้าพระยากลาโหมสุริยวงศ์ (ต่อมาคือพระเจ้าปราสาททอง) ยึดอำนาจและสำเร็จโทษ',
+  funFact:'"เชษฐา" แปลว่าพี่ เป็นพระเชษฐาของพระอาทิตยวงศ์',image:''},
+ {order:23,name:'สมเด็จพระอาทิตยวงศ์',altName:'',dynasty:'สุโขทัย',reignYears:'2173 (ราว 36 วัน)',
+  keyEvent:'ขึ้นครองราชย์ตอนพระชนมายุราว 9–10 พรรษา ขุนนางถวายราชสมบัติแก่เจ้าพระยากลาโหมสุริยวงศ์',
+  funFact:'องค์สุดท้ายของราชวงศ์สุโขทัย "อาทิตย์ตกดิน"',image:''},
+ {order:24,name:'สมเด็จพระเจ้าปราสาททอง',altName:'เจ้าพระยากลาโหมสุริยวงศ์',dynasty:'ปราสาททอง',reignYears:'2173–2199',
+  keyEvent:'สร้างวัดไชยวัฒนาราม · สร้างปราสาทนครหลวง',
+  funFact:'ตามตำนาน ได้พระนามจากการขุดพบปราสาททองคำ',image:''},
+ {order:25,name:'สมเด็จเจ้าฟ้าไชย',altName:'',dynasty:'ปราสาททอง',reignYears:'2199 (ไม่กี่เดือน)',
+  keyEvent:'ถูกพระศรีสุธรรมราชาร่วมกับพระนารายณ์ยึดอำนาจ',
+  funFact:'"ไชยไม่ชนะ" ครองราชย์สั้น',image:''},
+ {order:26,name:'สมเด็จพระศรีสุธรรมราชา',altName:'',dynasty:'ปราสาททอง',reignYears:'2199 (ราว 2–3 เดือน)',
+  keyEvent:'ถูกพระนารายณ์ (พระราชนัดดา) ชิงราชสมบัติ',
+  funFact:'เป็นอาของพระนารายณ์',image:''},
+ {order:27,name:'สมเด็จพระนารายณ์มหาราช',altName:'',dynasty:'ปราสาททอง',reignYears:'2199–2231',
+  keyEvent:'เจริญสัมพันธไมตรีกับฝรั่งเศสสมัยพระเจ้าหลุยส์ที่ 14 ส่งโกษาปานเป็นราชทูต · ประทับที่ลพบุรี · พระโหราธิบดีแต่งจินดามณี',
+  funFact:'"นารายณ์–ฝรั่งเศส–ลพบุรี" ยุคทองวรรณคดี',image:''},
+ {order:28,name:'สมเด็จพระเพทราชา',altName:'',dynasty:'บ้านพลูหลวง',reignYears:'2231–2246',
+  keyEvent:'ขับไล่ทหารฝรั่งเศสออกจากป้อมบางกอก · ประหารเจ้าพระยาวิชาเยนทร์ (คอนสแตนติน ฟอลคอน)',
+  funFact:'เดิมเป็นเจ้ากรมช้าง มาจากบ้านพลูหลวง เมืองสุพรรณบุรี',image:''},
+ {order:29,name:'สมเด็จพระสรรเพชญ์ที่ 8',altName:'พระเจ้าเสือ',dynasty:'บ้านพลูหลวง',reignYears:'2246–2251',
+  keyEvent:'เรื่องพันท้ายนรสิงห์ขอรับโทษตามกฎมณเฑียรบาล · โปรดให้ขุดคลองโคกขาม',
+  funFact:'"เสือ" เพราะพระอุปนิสัยดุและเด็ดขาด',image:''},
+ {order:30,name:'สมเด็จพระสรรเพชญ์ที่ 9',altName:'พระเจ้าท้ายสระ',dynasty:'บ้านพลูหลวง',reignYears:'2251–2275',
+  keyEvent:'ขุดคลองมหาชัยต่อจากคลองโคกขาม · การค้าข้าวกับจีนรุ่งเรือง',
+  funFact:'ชอบประทับพระที่นั่งท้ายสระและทรงตกปลา',image:''},
+ {order:31,name:'สมเด็จพระเจ้าอยู่หัวบรมโกศ',altName:'',dynasty:'บ้านพลูหลวง',reignYears:'2275–2301',
+  keyEvent:'ส่งพระอุบาลีไปฟื้นฟูพระพุทธศาสนาที่ลังกา เกิดนิกายสยามวงศ์ พ.ศ. 2296 · วรรณคดีรุ่งเรือง',
+  funFact:'ยุคสงบสุขช่วงสุดท้ายก่อนเสียกรุง',image:''},
+ {order:32,name:'สมเด็จพระเจ้าอุทุมพร',altName:'ขุนหลวงหาวัด',dynasty:'บ้านพลูหลวง',reignYears:'2301 (ราว 2 เดือน)',
+  keyEvent:'สละราชสมบัติให้พระเชษฐาแล้วออกผนวช · ลาผนวชมาช่วยรบเมื่อพม่ายกทัพมา พ.ศ. 2303',
+  funFact:'"หาวัด" เพราะชอบอยู่วัด',image:''},
+ {order:33,name:'สมเด็จพระเจ้าเอกทัศ',altName:'พระที่นั่งสุริยาศน์อมรินทร์',dynasty:'บ้านพลูหลวง',reignYears:'2301–2310',
+  keyEvent:'เสียกรุงศรีอยุธยาครั้งที่ 2 แก่พม่า พ.ศ. 2310',
+  funFact:'องค์สุดท้าย "2310 กรุงแตก"',image:''}
+];
+const SPECIAL = {order:'พิเศษ',name:'ขุนวรวงศาธิราช',altName:'ไม่นับใน 33 พระองค์',dynasty:'—',reignYears:'2091 (ราว 42 วัน)',
+  keyEvent:'ท้าวศรีสุดาจันทร์ยกขึ้นเป็นกษัตริย์ ขุนนางนำโดยขุนพิเรนทรเทพจับสำเร็จโทษ แล้วอัญเชิญพระเทียรราชาขึ้นครองราชย์',
+  funFact:'อยู่ระหว่างลำดับ 14 กับ 15 พงศาวดารส่วนใหญ่ไม่นับเพราะถือว่าชิงราชสมบัติ'};
+
+/* ---------- storage ---------- */
+const store = {
+  get(k,d){try{const v=localStorage.getItem('ay33.'+k);return v==null?d:JSON.parse(v)}catch(e){return d}},
+  set(k,v){try{localStorage.setItem('ay33.'+k,JSON.stringify(v))}catch(e){}}
+};
+let known = new Set(store.get('known',[]));
+let miss = store.get('miss',{});
+let images = store.get('images',{});
+let best = store.get('best',0);
+let score = 0, combo = 0;
+
+const $ = s => document.querySelector(s);
+const esc = s => String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const shuffle = a => {a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
+const byOrder = o => KINGS[o-1];
+const color = k => k.dynasty in DYN ? `var(${DYN[k.dynasty].v})` : 'var(--gold)';
+const shortName = k => k.name.replace(/^สมเด็จ/,'');
+const label = k => k.altName && !k.altName.includes('ครั้ง') ? `${k.name} (${k.altName})` : k.name;
+
+function avatar(k){
+  const img = images[k.order] || k.image;
+  if(img) return `<img src="${esc(img)}" alt="${esc(k.name)}" onerror="this.replaceWith(document.createRange().createContextualFragment(avatarSvg(byOrder(${k.order}))))">`;
+  return avatarSvg(k);
+}
+function avatarSvg(k){
+  const c = color(k);
+  return `<svg viewBox="0 0 100 100" role="img" aria-label="ลำดับ ${k.order}">
+    <circle cx="50" cy="50" r="48" fill="${c}"/>
+    <circle cx="50" cy="50" r="43" fill="none" stroke="#f3d27a" stroke-width="2" stroke-dasharray="3 3"/>
+    <path d="M50 10 L54 22 L58 22 L57 30 L62 30 L61 38 L66 38 L66 46 L34 46 L34 38 L39 38 L38 30 L43 30 L42 22 L46 22 Z" fill="#f3d27a" stroke="#7a5313" stroke-width="1.2"/>
+    <rect x="31" y="46" width="38" height="7" rx="2" fill="#e5b84f" stroke="#7a5313" stroke-width="1.2"/>
+    <circle cx="50" cy="49.5" r="2.2" fill="#a3302a"/>
+    <text x="50" y="84" text-anchor="middle" font-family="Sarabun,sans-serif" font-weight="700" font-size="${k.order>9?26:28}" fill="#fff8e6">${k.order}</text>
+  </svg>`;
+}
+const mini = k => `<span class="mini portrait" style="border-width:2px">${avatar(k)}</span>`;
+const dynTag = k => `<span class="dyn-tag" style="background:${color(k)}">${esc(k.dynasty)}</span>`;
+const fmt = s => esc(s).replace(/\(รอตรวจสอบ\)/g,'<span class="pending">(รอตรวจสอบ)</span>').replace(/ · /g,'<br>• ');
+
+function saveProgress(){store.set('known',[...known]);store.set('miss',miss);renderStats()}
+function renderStats(){
+  $('#sScore').textContent=score;$('#sCombo').textContent=combo;$('#sBest').textContent=best;
+  $('#pTxt').textContent=`${known.size}/33`;$('#pBar').style.width=(known.size/33*100)+'%';
+}
+function bump(el,cls){if(!el)return;el.classList.remove('pop','shake');void el.offsetWidth;el.classList.add(cls)}
+
+/* ---------- details (back of card / dialog) ---------- */
+function details(k, withEdit=true){
+  const st = known.has(k.order) ? '<span class="status-pill ok">จำได้แล้ว</span>' : (miss[k.order] ? `<span class="status-pill no">ยังไม่ได้ ×${miss[k.order]}</span>` : '');
+  return `<div class="back-head"><span class="portrait">${avatar(k)}</span>
+     <div style="min-width:0"><div class="alt">ลำดับที่ ${k.order} ${st}</div><h3>${esc(k.name)}</h3>${k.altName?`<div class="alt">${esc(k.altName)}</div>`:''}</div></div>
+   <dl class="facts">
+     <div><dt>ราชวงศ์</dt><dd>${dynTag(k)}</dd></div>
+     <div><dt>ครองราชย์ (พ.ศ.)</dt><dd>${fmt(k.reignYears)}</dd></div>
+     <div><dt>เหตุการณ์สำคัญ</dt><dd>• ${fmt(k.keyEvent)}</dd></div>
+   </dl>
+   <div class="memo">💡 ${esc(k.funFact)}</div>
+   ${withEdit?`<button class="link-btn" data-edit="${k.order}">🖼️ เปลี่ยนรูป</button><div class="img-edit" id="ie-${k.order}" hidden>
+     <label for="iu-${k.order}" class="alt">วาง URL รูป (เว้นว่างเพื่อใช้รูปวาดเดิม)</label>
+     <input id="iu-${k.order}" type="url" inputmode="url" placeholder="https://..." value="${esc(images[k.order]||'')}">
+     <div class="row"><button class="btn primary" data-save="${k.order}">บันทึกรูป</button><button class="btn" data-reset="${k.order}">ใช้รูปวาด</button></div></div>`:''}`;
+}
+document.addEventListener('click',e=>{
+  const ed=e.target.closest('[data-edit]'),sv=e.target.closest('[data-save]'),rs=e.target.closest('[data-reset]');
+  if(ed||sv||rs||e.target.closest('.img-edit'))e.stopPropagation();
+  if(ed){const box=document.getElementById('ie-'+ed.dataset.edit);box.hidden=!box.hidden;if(!box.hidden)box.querySelector('input').focus()}
+  if(sv||rs){const o=(sv||rs).dataset.save||(sv||rs).dataset.reset;
+    const v=sv?document.getElementById('iu-'+o).value.trim():'';
+    if(v)images[o]=v;else delete images[o];store.set('images',images);refreshAll()}
+},true);
+
+/* ---------- legend ---------- */
+const legendHtml = Object.entries(DYN).map(([n,d])=>`<span><i style="background:var(${d.v})"></i>${n}</span>`).join('');
+$('#legend').innerHTML=legendHtml;$('#legend2').innerHTML=legendHtml;
+
+/* ---------- flashcards ---------- */
+const fSel=$('#fDyn');
+fSel.innerHTML='<option value="">ทุกราชวงศ์ (33)</option>'+Object.keys(DYN).map(d=>`<option value="${d}">${d} (${KINGS.filter(k=>k.dynasty===d).length})</option>`).join('')+'<option value="__todo">เฉพาะที่ยังจำไม่ได้</option>';
+fSel.value=store.get('fDyn','');
+let seq=[],pos=0;
+function buildDeck(){
+  const f=fSel.value;
+  let deck=KINGS.filter(k=>!f||(f==='__todo'?!known.has(k.order):k.dynasty===f)).map(k=>k.order);
+  if(!deck.length)deck=KINGS.map(k=>k.order);
+  seq=deck;pos=0;renderCard();
+}
+function renderCard(flip=false){
+  const k=byOrder(seq[pos]);const card=$('#card');
+  card.classList.toggle('flipped',flip);
+  card.innerHTML=`<div class="face front">
+      <div class="portrait">${avatar(k)}</div>
+      <div class="big-order">ลำดับที่ ${k.order}</div>
+      ${dynTag(k)}
+      <div class="tap">แตะเพื่อดูพระนาม</div></div>
+    <div class="face back">${details(k)}</div>`;
+  $('#fPos').textContent=`การ์ด ${pos+1}/${seq.length}`;
+}
+function flashGo(d){pos=(pos+d+seq.length)%seq.length;renderCard()}
+$('#card').addEventListener('click',e=>{if(e.target.closest('.img-edit,[data-edit]'))return;$('#card').classList.toggle('flipped')});
+$('#card').addEventListener('keydown',e=>{if(e.key===' '||e.key==='Enter'){e.preventDefault();$('#card').classList.toggle('flipped')}});
+$('#fPrev').onclick=()=>flashGo(-1);
+$('#fNext').onclick=()=>flashGo(1);
+$('#fRand').onclick=()=>{
+  const pool=[...new Set(seq)];
+  const w=pool.map(o=>known.has(o)?1:(miss[o]?3+Math.min(miss[o],4):2));
+  let r=Math.random()*w.reduce((a,b)=>a+b,0),pick=pool[0];
+  for(let i=0;i<pool.length;i++){r-=w[i];if(r<=0){pick=pool[i];break}}
+  if(pool.length>1&&pick===seq[pos])pick=pool[(pool.indexOf(pick)+1)%pool.length];
+  pos=seq.indexOf(pick);renderCard();
+};
+$('#fYes').onclick=()=>{const o=seq[pos];known.add(o);miss[o]=0;saveProgress();bump($('.card-scene'),'pop');
+  if(known.size===33)$('#fPos').textContent='🎉 จำครบ 33 พระองค์แล้ว!';
+  setTimeout(()=>flashGo(1),260)};
+$('#fNo').onclick=()=>{const o=seq[pos];known.delete(o);miss[o]=(miss[o]||0)+1;saveProgress();bump($('.card-scene'),'shake');
+  const gap=Math.max(2,4-Math.min(miss[o],2));               // พลาดบ่อย = กลับมาเร็วขึ้น
+  const at=Math.min(pos+1+gap,seq.length);
+  if(seq[at]!==o)seq.splice(at,0,o);
+  setTimeout(()=>flashGo(1),300)};
+fSel.onchange=()=>{store.set('fDyn',fSel.value);buildDeck()};
+$('#specialCard').innerHTML=`<h4>⭐ เกร็ดพิเศษ: ${SPECIAL.name}</h4><div class="alt">ระหว่างลำดับ 14–15 · พ.ศ. ${SPECIAL.reignYears}</div><p style="margin:6px 0 0">${esc(SPECIAL.keyEvent)}</p><p class="alt" style="margin:4px 0 0">💡 ${esc(SPECIAL.funFact)}</p>`;
+
+/* ---------- quiz ---------- */
+const evOK = KINGS.filter(k=>!k.keyEvent.includes(P)||k.keyEvent.split(' · ')[0].indexOf(P)<0);
+function nearby(o,n,exclude){
+  const c=KINGS.map(k=>k.order).filter(x=>!exclude.includes(x)).sort((a,b)=>Math.abs(a-o)-Math.abs(b-o)+ (Math.random()-.5)*2.5);
+  return c.slice(0,n);
+}
+function makeQ(type){
+  if(type==='order'){
+    const k=KINGS[Math.floor(Math.random()*33)];
+    return {q:`พระมหากษัตริย์ลำดับที่ ${k.order} คือพระองค์ใด`,ans:k.order,opts:shuffle([k.order,...nearby(k.order,3,[k.order])]),
+      exp:`ลำดับที่ ${k.order} คือ ${label(k)} ราชวงศ์${k.dynasty}`};
+  }
+  if(type==='dyn'){
+    const d=shuffle(Object.keys(DYN))[0];const ins=KINGS.filter(k=>k.dynasty===d);const k=shuffle(ins)[0];
+    const outs=KINGS.filter(k=>k.dynasty!==d).sort((a,b)=>Math.abs(a.order-k.order)-Math.abs(b.order-k.order)).slice(0,6);
+    const wrong=shuffle(outs).slice(0,3).map(x=>x.order);
+    return {q:`พระองค์ใดอยู่ในราชวงศ์${d}`,ans:k.order,opts:shuffle([k.order,...wrong]),
+      exp:`${label(k)} (ลำดับ ${k.order}) อยู่ราชวงศ์${d} · ตัวเลือกอื่นอยู่ราชวงศ์${[...new Set(wrong.map(o=>byOrder(o).dynasty))].join(', ')}`};
+  }
+  if(type==='event'){
+    const k=shuffle(evOK)[0];const ev=k.keyEvent.split(' · ').filter(s=>!s.includes(P));const e=shuffle(ev)[0];
+    const same=KINGS.filter(x=>x.dynasty===k.dynasty&&x.order!==k.order).map(x=>x.order);
+    const wrong=shuffle([...new Set([...shuffle(same).slice(0,2),...nearby(k.order,4,[k.order])])]).filter(x=>x!==k.order).slice(0,3);
+    return {q:'เหตุการณ์นี้เกิดในรัชกาลใด',ev:e,ans:k.order,opts:shuffle([k.order,...wrong]),
+      exp:`เป็นเหตุการณ์ในรัชกาล ${label(k)} (ลำดับ ${k.order}, พ.ศ. ${k.reignYears})`};
+  }
+  // next
+  const p=KINGS[Math.floor(Math.random()*32)];const k=byOrder(p.order+1);
+  let cand=shuffle([p.order-1,p.order+2,p.order+3,p.order-2].filter(x=>x>=1&&x<=33&&x!==k.order&&x!==p.order)).slice(0,3);
+  if(cand.length<3)cand=[...cand,...nearby(k.order,3-cand.length,[k.order,p.order,...cand])];
+  return {q:`พระองค์ใดครองราชย์ต่อจาก ${label(p)}`,ans:k.order,opts:shuffle([k.order,...cand]),
+    exp:`ต่อจาก ${shortName(p)} (ลำดับ ${p.order}) คือ ${label(k)} (ลำดับ ${k.order})`+(p.order===14?' · ช่วงนี้มีขุนวรวงศาธิราชคั่น แต่ไม่นับใน 33 พระองค์':'')};
+}
+let quiz=null;
+function startQuiz(){
+  const types=shuffle(['order','order','order','dyn','dyn','event','event','event','next','next']);
+  const seen=new Set();const qs=[];
+  for(const t of types){let q,tries=0;do{q=makeQ(t);tries++}while(seen.has(t+q.ans)&&tries<10);seen.add(t+q.ans);qs.push(q)}
+  quiz={qs,i:0,right:0,points:0,log:[]};score=0;combo=0;renderStats();renderQ();
+}
+function renderQ(){
+  const v=$('#view-quiz');const q=quiz.qs[quiz.i];
+  v.innerHTML=`<h2>ควิซ 10 ข้อ</h2>
+    <div class="q-meta"><span>ข้อ ${quiz.i+1}/10</span><span>ถูก ${quiz.right} ข้อ</span><span class="combo" id="qCombo">${combo>=2?'🔥 คอมโบ x'+combo:''}</span></div>
+    <div class="bar" style="margin-top:6px;border-color:var(--line);background:var(--line)"><i style="width:${quiz.i*10}%"></i></div>
+    <div class="q-text">${esc(q.q)}</div>${q.ev?`<div class="q-event">“${esc(q.ev)}”</div>`:''}
+    <div class="opts">${q.opts.map(o=>{const k=byOrder(o);return `<button class="opt" data-o="${o}">${mini(k)}<span>${esc(k.name)}${k.altName&&!k.altName.includes('ครั้ง')?`<br><small class="alt">${esc(k.altName)}</small>`:''}</span></button>`}).join('')}</div>
+    <div id="qFb"></div>`;
+  v.querySelectorAll('.opt').forEach(b=>b.onclick=()=>answer(+b.dataset.o,b));
+}
+function answer(o,btn){
+  const q=quiz.qs[quiz.i];const ok=o===q.ans;
+  document.querySelectorAll('.opt').forEach(b=>{b.disabled=true;if(+b.dataset.o===q.ans)b.classList.add('correct')});
+  if(ok){combo++;quiz.right++;const pts=10+(combo-1)*2;quiz.points+=pts;score=quiz.points;bump(btn,'pop');}
+  else{combo=0;btn.classList.add('wrong');bump(btn,'shake');miss[q.ans]=(miss[q.ans]||0)+1;known.delete(q.ans);saveProgress()}
+  quiz.log.push({ok,q});
+  if(score>best){best=score;store.set('best',best)}
+  renderStats();bump($('#sScore').parentElement,ok?'pop':'shake');
+  $('#qFb').innerHTML=`<div class="feedback ${ok?'ok':'no'}"><b>${ok?'✓ ถูกต้อง!':'✗ ยังไม่ถูก'}</b> ${esc(q.exp)}</div>
+    <div class="btn-grid two"><span></span><button class="btn primary" id="qNext">${quiz.i<9?'ข้อต่อไป ▶':'ดูสรุปคะแนน'}</button></div>`;
+  $('#qCombo').textContent=combo>=2?'🔥 คอมโบ x'+combo:'';
+  $('#qNext').onclick=()=>{quiz.i++;quiz.i<10?renderQ():renderResult()};
+  $('#qNext').focus({preventScroll:true});
+}
+function renderResult(){
+  const r=quiz.right;const msg=r===10?'เก่งมาก! ครบทุกข้อ 👑':r>=7?'ดีมาก ใกล้จำได้ครบแล้ว':r>=4?'กำลังไปได้ดี ลองทวนแฟลชการ์ดอีกนิด':'ลองเปิดแฟลชการ์ดทวนก่อน แล้วกลับมาใหม่';
+  $('#view-quiz').innerHTML=`<h2>สรุปคะแนน</h2><div class="result pop">
+    <div class="score">${r}/10</div><div>คะแนน <b>${quiz.points}</b> · สูงสุด <b>${best}</b></div><div>${msg}</div>
+    <div class="review">${quiz.log.map((l,i)=>`<div>${l.ok?'✅':'❌'} ${i+1}. ${esc(l.q.exp)}</div>`).join('')}</div>
+    <div class="btn-grid two" style="width:100%"><button class="btn" data-goto="flash">ทวนแฟลชการ์ด</button><button class="btn primary" id="qAgain">เล่นอีกชุด</button></div></div>`;
+  $('#qAgain').onclick=startQuiz;
+}
+
+/* ---------- sort ---------- */
+let sortSet=[];
+function newSort(){
+  sortSet=shuffle(KINGS).slice(0,5).map(k=>k.order);
+  let disp=shuffle(sortSet);let g=0;while(disp.join()===[...sortSet].sort((a,b)=>a-b).join()&&g++<5)disp=shuffle(sortSet);
+  $('#sortList').innerHTML=disp.map(o=>{const k=byOrder(o);return `<li class="sort-item" data-o="${o}"><span class="grip" aria-hidden="true">⠿</span><span class="mini portrait" style="border-width:2px">${avatarSvg({...k,order:'?'})}</span><span class="nm">${esc(k.name)}${k.altName&&!k.altName.includes('ครั้ง')?`<small>${esc(k.altName)}</small>`:''}</span><span class="ans"></span><span class="arrows"><button aria-label="เลื่อนขึ้น" data-mv="-1">▲</button><button aria-label="เลื่อนลง" data-mv="1">▼</button></span></li>`}).join('');
+  $('#sortFb').hidden=true;
+}
+$('#sortList').addEventListener('click',e=>{
+  const b=e.target.closest('[data-mv]');if(!b)return;const li=b.closest('li');
+  if(b.dataset.mv==='-1'&&li.previousElementSibling)li.parentNode.insertBefore(li,li.previousElementSibling);
+  if(b.dataset.mv==='1'&&li.nextElementSibling)li.parentNode.insertBefore(li.nextElementSibling,li);
+  clearMarks();
+});
+let drag=null;
+$('#sortList').addEventListener('pointerdown',e=>{
+  if(e.target.closest('button'))return;const li=e.target.closest('.sort-item');if(!li)return;
+  drag=li;li.classList.add('dragging');li.setPointerCapture(e.pointerId);clearMarks();
+});
+$('#sortList').addEventListener('pointermove',e=>{
+  if(!drag)return;e.preventDefault();
+  const items=[...$('#sortList').children].filter(x=>x!==drag);
+  let before=null;for(const it of items){const r=it.getBoundingClientRect();if(e.clientY<r.top+r.height/2){before=it;break}}
+  if(before!==drag.nextElementSibling)$('#sortList').insertBefore(drag,before);
+});
+const endDrag=()=>{if(drag){drag.classList.remove('dragging');drag=null}};
+$('#sortList').addEventListener('pointerup',endDrag);$('#sortList').addEventListener('pointercancel',endDrag);
+function clearMarks(){document.querySelectorAll('.sort-item').forEach(li=>{li.classList.remove('right','off');li.querySelector('.ans').textContent=''})}
+$('#sortCheck').onclick=()=>{
+  const cur=[...$('#sortList').children];const correct=[...sortSet].sort((a,b)=>a-b);let n=0;
+  cur.forEach((li,i)=>{const o=+li.dataset.o;const ok=o===correct[i];if(ok)n++;li.classList.toggle('right',ok);li.classList.toggle('off',!ok);li.querySelector('.ans').textContent='#'+o;li.querySelector('svg text').textContent=o});
+  const fb=$('#sortFb');fb.hidden=false;
+  const all=n===5;
+  if(all){combo++;score+=20+combo*2}else combo=0;
+  if(score>best){best=score;store.set('best',best)}renderStats();
+  fb.className='feedback '+(all?'ok':'no');
+  fb.innerHTML=all?`<b>✓ เรียงถูกทั้งหมด!</b> +${20+combo*2} คะแนน`:`<b>ถูก ${n}/5 ตำแหน่ง</b> ลำดับที่ถูกคือ ${correct.map(o=>`${o}. ${esc(shortName(byOrder(o)))}`).join(' → ')}`;
+  bump($('#sortList'),all?'pop':'shake');
+};
+$('#sortNew').onclick=newSort;
+
+/* ---------- timeline ---------- */
+function renderTimeline(){
+  const groups=[];KINGS.forEach(k=>{const g=groups[groups.length-1];if(g&&g.d===k.dynasty)g.ks.push(k);else groups.push({d:k.dynasty,ks:[k]})});
+  $('#tl').innerHTML=groups.map(g=>`<div class="tl-dyn" style="--c:var(${DYN[g.d].v})"><h3>ราชวงศ์${g.d} <small>ลำดับ ${g.ks[0].order}${g.ks.length>1?'–'+g.ks[g.ks.length-1].order:''}</small></h3><div class="tl-items">
+    ${g.ks.map(k=>`<button class="tl-item" data-k="${k.order}">${mini(k)}<span class="nm">${esc(k.name)}${k.altName?` <span class="alt">(${esc(k.altName)})</span>`:''}<small>พ.ศ. ${esc(k.reignYears)}</small></span>${known.has(k.order)?'<span class="known" title="จำได้แล้ว">✓</span>':''}</button>`).join('')}
+    ${g.ks.some(k=>k.order===14)?`<button class="tl-item special" data-k="special"><span class="mini portrait" style="border-width:2px;display:grid;place-items:center;font-size:1.2rem">⭐</span><span class="nm">${SPECIAL.name} <span class="alt">(ไม่นับใน 33)</span><small>พ.ศ. ${SPECIAL.reignYears} · คั่นระหว่าง 14 กับ 15</small></span></button>`:''}
+  </div></div>`).join('');
+}
+$('#tl').addEventListener('click',e=>{const b=e.target.closest('[data-k]');if(!b)return;
+  if(b.dataset.k==='special'){$('#dlgBody').innerHTML=`<h3 style="font-family:var(--font-display);color:var(--red);margin:0">⭐ ${SPECIAL.name}</h3><div class="alt">${SPECIAL.altName}</div><dl class="facts"><div><dt>ครองราชย์ (พ.ศ.)</dt><dd>${SPECIAL.reignYears}</dd></div><div><dt>เหตุการณ์</dt><dd>${esc(SPECIAL.keyEvent)}</dd></div></dl><div class="memo" style="margin-top:8px">💡 ${esc(SPECIAL.funFact)}</div>`}
+  else $('#dlgBody').innerHTML=details(byOrder(+b.dataset.k));
+  $('#dlg').showModal()});
+$('#dlgClose').onclick=()=>$('#dlg').close();
+$('#dlg').addEventListener('click',e=>{if(e.target===$('#dlg'))$('#dlg').close()});
+
+/* ---------- tabs ---------- */
+let mode='flash';
+function setMode(m){
+  mode=m;store.set('mode',m);
+  document.querySelectorAll('nav.tabs button').forEach(b=>b.setAttribute('aria-selected',b.dataset.mode===m));
+  ['flash','quiz','sort','timeline'].forEach(x=>$('#view-'+x).hidden=x!==m);
+  if(m==='quiz'&&(!quiz||quiz.i>=10))startQuiz();
+  if(m==='quiz'&&quiz&&quiz.i<10&&!$('#view-quiz').innerHTML)renderQ();
+  if(m==='timeline')renderTimeline();
+  if(m==='flash')renderCard();
+}
+document.addEventListener('click',e=>{const t=e.target.closest('[data-mode],[data-goto]');if(t)setMode(t.dataset.mode||t.dataset.goto)});
+function refreshAll(){if(mode==='flash')renderCard($('#card').classList.contains('flipped'));if(mode==='timeline')renderTimeline();
+  if(mode==='quiz'&&quiz&&quiz.i<10&&!document.querySelector('.opt:disabled'))renderQ();
+  if($('#dlg').open){const o=$('#dlgBody').querySelector('[data-edit]');if(o)$('#dlgBody').innerHTML=details(byOrder(+o.dataset.edit))}}
+
+buildDeck();newSort();renderStats();setMode(store.get('mode','flash'));
+</script>
